@@ -16,6 +16,7 @@ class Block extends Migration
         Schema::create('block', function (Blueprint $table) {
             $table->increments('id');
             $table->text('name');
+            $table->boolean('status')->default('1');
             $table->text('detail')->nullable();
             $table->text('quote')->nullable();
             $table->integer('content_id')->unsigned();

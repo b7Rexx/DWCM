@@ -33,4 +33,13 @@
         </div>
     </div>
 
+    <div>
+        <?php
+//        foreach ($nav as $asd) {
+            echo "<pre>";
+            print_r($nav);
+            echo "</pre>";
+//        }
+        ?>
+    </div>
 @endsection

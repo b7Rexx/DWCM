@@ -17,6 +17,7 @@ class Navbar extends Migration
             $table->increments('id');
             $table->string('name');
             $table->boolean('dropdown');
+            $table->boolean('status')->default('1');
             $table->timestamps();
         });
     }

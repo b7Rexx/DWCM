@@ -11,4 +11,7 @@ Route::get('/', function () {
 Route::group(['prefix' => '@dmin'], function () {
     Route::get('/', 'BackendController@home');
     Route::get('home', 'BackendController@home');
+    Route::get('navbar', 'BackendController@navbar')->name('admin-navbar');
+    Route::get('add-navbar', 'BackendController@navbarAdd')->name('admin-add-navbar');
+    Route::post('add-navbar', 'BackendController@navbarAddAction')->name('admin-add-navbar-action');
 });

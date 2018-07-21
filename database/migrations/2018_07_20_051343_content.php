@@ -16,6 +16,7 @@ class Content extends Migration
         Schema::create('content', function (Blueprint $table) {
             $table->increments('id');
             $table->string('type');
+            $table->boolean('status')->default('1');
             $table->integer('nav_id')->unsigned();
             $table->foreign('nav_id')->references('id')->on('nav')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();

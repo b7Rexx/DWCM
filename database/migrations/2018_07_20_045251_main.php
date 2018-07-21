@@ -17,6 +17,7 @@ class Main extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('value');
+            $table->boolean('status')->default('1');
             $table->timestamps();
         });
     }
