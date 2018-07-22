@@ -11,11 +11,11 @@ class Nav extends Model
 
     public function navbar()
     {
-        return $this->belongsTo('app\Navbar', 'navbar_id');
+        return $this->belongsTo(Navbar::class, 'navbar_id');
     }
 
     public function content()
     {
-        return $this->hasMany('app\Content', 'nav_id');
+        return $this->hasMany(Content::class, 'nav_id');
     }
 }

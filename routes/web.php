@@ -25,4 +25,8 @@ Route::group(['prefix' => '@dmin'], function () {
 
     Route::get('nav/delete/{id}', 'BackendController@navDelete');
 
+
+    Route::get('content/{type}/{id}', 'BackendController@Content');
+    Route::get('block/add/{type}/{id}', 'BackendController@Block');
+
 });

@@ -11,31 +11,31 @@ class Block extends Model
 
     public function content()
     {
-        return $this->belongsTo('app\Content', 'content_id');
+        return $this->belongsTo(Content::class, 'content_id');
     }
 
     public function ImageData()
     {
-        return $this->hasOne('app\Image', 'block_id');
+        return $this->hasOne(Image::class, 'block_id');
     }
 
     public function AdsData()
     {
-        return $this->hasOne('app\Ads', 'block_id');
+        return $this->hasOne(Ads::class, 'block_id');
     }
 
     public function AudioData()
     {
-        return $this->hasOne('app\Audio', 'block_id');
+        return $this->hasOne(Audio::class, 'block_id');
     }
 
     public function CarouselData()
     {
-        return $this->hasOne('app\Carousel', 'block_id');
+        return $this->hasOne(Carousel::class, 'block_id');
     }
 
     public function VideoData()
     {
-        return $this->hasOne('app\Video', 'block_id');
+        return $this->hasOne(Video::class, 'block_id');
     }
 }

@@ -11,11 +11,11 @@ class Content extends Model
 
     public function nav()
     {
-        return $this->belongsTo('app\Nav', 'nav_id');
+        return $this->belongsTo(Nav::class, 'nav_id');
     }
 
     public function block()
     {
-        return $this->hasMany('app\Block', 'content_id');
+        return $this->hasMany(Block::class, 'content_id');
     }
 }

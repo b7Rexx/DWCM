@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Content;
 use App\Nav;
 use App\Navbar;
 use Illuminate\Http\Request;
@@ -93,4 +94,42 @@ class BackendController extends Controller
         }
         return redirect()->back()->with('fail', 'Failed to delete page !');
     }
+
+
+    /*********************** CONTENT ******************/
+
+    function Content($type, $id)
+    {
+        $returnObj = Content::where('type', '=', $type)->where('nav_id', '=', $id)->get();
+
+        foreach ($returnObj as $val) {
+            $check = $val->id;
+        }
+
+        $data['type'] = $type;
+        $data['nav_id'] = $id;
+
+        if (empty($check)) {
+            if ($last_id = Content::create($data)->id) {
+
+                $this->_data['contentDetail'] = Content::find($last_id);
+                return view($this->_path . 'content', $this->_data);
+
+            } else {
+                return redirect()->back();
+            }
+        }
+        $this->_data['contentDetail'] = Content::find($check);
+        return view($this->_path . 'content', $this->_data);
+
+    }
+
+    /***************************** BLOCK **********/
+
+    function Block($type, $id)
+    {
+
+        return view($this->_path . 'block', $this->_data);
+    }
+
 }
