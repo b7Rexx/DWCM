@@ -16,6 +16,7 @@ class Navbar extends Migration
         Schema::create('navbar', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->Integer('placement')->default(5);
             $table->boolean('dropdown');
             $table->boolean('status')->default('1');
             $table->timestamps();

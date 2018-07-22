@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Content extends Model
 {
     protected $table = 'content';
-    protected $fillable = ['name', 'type', 'nav_id', 'status'];
+    protected $fillable = ['name', 'type', 'nav_id', 'placement','status'];
 
     public function nav()
     {

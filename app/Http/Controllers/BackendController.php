@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Block;
 use App\Content;
+use App\Image;
 use App\Nav;
 use App\Navbar;
 use Illuminate\Http\Request;
@@ -128,8 +130,29 @@ class BackendController extends Controller
 
     function Block($type, $id)
     {
-
+        $this->_data['contentDetail'] = Content::find($id);
+        $this->_data['type'] = $type;
         return view($this->_path . 'block', $this->_data);
     }
 
+    function BlockAction(Request $request)
+    {
+        $data['name'] = $request->name;
+        $data['quote'] = $request->quote ? $request->quote : '';
+        $data['detail'] = $request->detail ? $request->detail : '';
+        $data['content_id'] = $request->content_id;
+
+        $last_id = Block::create($data)->id;
+
+        //Image handling
+        if ($request->hasfile('image')) {
+
+            $imageName = time() . '.' . request()->image->getClientOriginalExtension();
+            request()->image->move(public_path('images/' . $request->type), $imageName);
+
+            Image::create(['title' => $imageName, 'block_id' => $last_id]);
+        }
+
+        return redirect()->back()->with('success', $request->type . ' Block added !');
+    }
 }

@@ -19,6 +19,7 @@
                 <th>Name</th>
                 <th>Dropdown</th>
                 <th>status</th>
+                <th>Placement</th>
                 <th>created at</th>
                 <th>action</th>
             </tr>
@@ -28,6 +29,7 @@
                     <td>{{$item->name}}</td>
                     <td>{{$item->dropdown}}</td>
                     <td>{{$item->status}}</td>
+                    <td>{{$item->placement}}</td>
                     <td>{{\Carbon\Carbon::parse($item->created_at)->diffForHumans()}}</td>
                     <td>
                         <a href="{{url('@dmin/navbar/delete/'.$item->id)}}" onclick="return confirm('Are you sure?')">
@@ -37,7 +39,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="5">No navbar item! <a href="{{route('admin-add-navbar')}}">Add navbar here!</a></td>
+                    <td colspan="6">No navbar item! <a href="{{route('admin-add-navbar')}}">Add navbar here!</a></td>
                 </tr>
             @endforelse
         </table>

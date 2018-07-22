@@ -17,6 +17,7 @@ class Content extends Migration
             $table->increments('id');
             $table->string('name')->nullable();
             $table->string('type');
+            $table->Integer('placement')->default(5);
             $table->boolean('status')->default('1');
             $table->integer('nav_id')->unsigned();
             $table->foreign('nav_id')->references('id')->on('nav')->onUpdate('cascade')->onDelete('cascade');

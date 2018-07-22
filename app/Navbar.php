@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Navbar extends Model
 {
     protected $table = 'navbar';
-    protected $fillable = ['name', 'dropdown', 'status'];
+    protected $fillable = ['name', 'dropdown','placement','status'];
 
     function nav()
     {
