@@ -29,8 +29,9 @@
                     </div>
                     <div class="mr-5"><i class="fa fa-plus fa-2x"></i> <b>Carousel</b></div>
                 </div>
-                <a class="card-footer text-white clearfix small z-1" href="#">
-                    <span class="float-left">Enable</span>
+                <a class="card-footer text-white clearfix small z-1"
+                   href="{{url('@dmin/status/content/carousel/'.$navDetail->id)}}">
+                    <span class="float-left">Click here! to change Status</span>
                     <span class="float-right">
                 <i class="fa fa-angle-right"></i>
               </span>
@@ -48,8 +49,10 @@
                     </div>
                     <div class="mr-5"><i class="fa fa-plus fa-2x"></i> <b>Ads</b></div>
                 </div>
-                <a class="card-footer text-white clearfix small z-1" href="#">
-                    <span class="float-left">Enable</span>
+                <a class="card-footer text-white clearfix small z-1"
+                   href="{{url('@dmin/status/content/ads/'.$navDetail->id)}}">
+
+                <span class="float-left">Click here! to change Status</span>
                     <span class="float-right">
                 <i class="fa fa-angle-right"></i>
               </span>
@@ -66,8 +69,9 @@
                     </div>
                     <div class="mr-5"><i class="fa fa-plus fa-2x"></i> <b>Detail Block</b></div>
                 </div>
-                <a class="card-footer text-white clearfix small z-1" href="#">
-                    <span class="float-left">Enable</span>
+                <a class="card-footer text-white clearfix small z-1"
+                   href="{{url('@dmin/status/content/detail/'.$navDetail->id)}}">
+                    <span class="float-left">Click here! to change Status</span>
                     <span class="float-right">
                 <i class="fa fa-angle-right"></i>
               </span>
@@ -84,8 +88,10 @@
                     </div>
                     <div class="mr-5"><i class="fa fa-plus fa-2x"></i> <b>List Block</b></div>
                 </div>
-                <a class="card-footer text-white clearfix small z-1" href="#">
-                    <span class="float-left">Enable</span>
+                <a class="card-footer text-white clearfix small z-1"
+                   href="{{url('@dmin/status/content/list/'.$navDetail->id)}}">
+
+                <span class="float-left">Click here! to change Status</span>
                     <span class="float-right">
                 <i class="fa fa-angle-right"></i>
               </span>

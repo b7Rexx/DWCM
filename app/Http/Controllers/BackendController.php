@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Audio;
 use App\Block;
 use App\Content;
 use App\Image;
 use App\Nav;
 use App\Navbar;
+use App\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -127,6 +129,23 @@ class BackendController extends Controller
 
     }
 
+    function ContentStatusChange($type, $id)
+    {
+        $updateStat = Content::where('nav_id', '=', $id)->where('type', '=', $type);
+
+        if (!isset($updateStat->get()[0])) return redirect()->back();
+
+        $change = $updateStat->get()[0]->status;
+        if ($change == 0) {
+            $change = 1;
+        } else {
+            $change = 0;
+        }
+        $updateStat->update(['status' => $change]);
+        return redirect()->back();
+    }
+
+
     /***************************** BLOCK **********/
 
     function Block($type, $id)
@@ -152,6 +171,16 @@ class BackendController extends Controller
             request()->image->move(public_path('images/' . $request->type), $imageName);
 
             Image::create(['title' => $imageName, 'block_id' => $last_id]);
+        }
+
+        if ($request->hasfile('audio')) {
+            $audioName = time() . '.' . $request->audio->getClientOriginalExtension();
+            $request->audio->move(public_path('audio'), $audioName);
+            Audio::create(['title' => $audioName, 'block_id' => $last_id]);
+        }
+
+        if (isset($request->video)) {
+            Video::create(['title' => $request->video, 'block_id' => $last_id]);
         }
 
         return redirect()->back()->with('success', $request->type . ' Block added !');

@@ -37,7 +37,24 @@
                     @endif
 
                     <td>{{$item->status}}</td>
-                    <td>{{$item->ImageData->title??' '}}</td>
+                    <td>
+                        @if($item->ImageData)
+                            <a href="<?php
+                            $img = isset($item->ImageData->title) ? $item->ImageData->title : '';
+                            echo url('images/' . $contentDetail->type . '/' . $img);
+                            ?>"><i class="fa fa-image fa-2x m-1"></i></a>
+                        @endif
+
+                        @if($item->VideoData)
+                            <a href="">
+                                <i class="fa fa-video-camera fa-2x m-1"></i></a>
+                        @endif
+
+                        @if($item->AudioData)
+                            <a href=""><i class="fa fa-music fa-2x m-1"></i></a>
+                        @endif
+
+                    </td>
                     <td>{{\Carbon\Carbon::parse($item->created_at)->diffForHumans()}}</td>
                     <td><a href="{{url('@dmin/block/delete/'.$contentDetail->type.'/'.$item->id)}}"
                            class="fa fa-trash btn-sm btn-danger btn" onclick="return confirm('Are you sure?')"></a></td>
