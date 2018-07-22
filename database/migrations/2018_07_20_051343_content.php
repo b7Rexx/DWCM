@@ -15,6 +15,7 @@ class Content extends Migration
     {
         Schema::create('content', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name')->nullable();
             $table->string('type');
             $table->boolean('status')->default('1');
             $table->integer('nav_id')->unsigned();

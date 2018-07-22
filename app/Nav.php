@@ -13,4 +13,9 @@ class Nav extends Model
     {
         return $this->belongsTo('app\Navbar', 'navbar_id');
     }
+
+    public function content()
+    {
+        return $this->hasMany('app\Content', 'nav_id');
+    }
 }

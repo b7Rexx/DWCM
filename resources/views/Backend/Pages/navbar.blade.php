@@ -30,7 +30,7 @@
                     <td>{{$item->status}}</td>
                     <td>{{\Carbon\Carbon::parse($item->created_at)->diffForHumans()}}</td>
                     <td>
-                        <a href="{{url('@dmin/navbar/delete/'.$item->id)}}" onclick="confirm('Are you sure?')">
+                        <a href="{{url('@dmin/navbar/delete/'.$item->id)}}" onclick="return confirm('Are you sure?')">
                             <i class="fa fa-trash btn btn-danger btn-xs"></i>
                         </a>
                     </td>
