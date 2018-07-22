@@ -13,16 +13,15 @@
     <h4 class="m-2 text-success font-weight-bold"> Add Contents</h4>
     <br>
     <?php
-    echo "<pre>";
-    //    if ($navDetail->content) {
-//    print_r($navDetail->content);
-    //    }
-    echo "</pre>";
-    ?>
+    $bg = [];
+    foreach ($navDetail->content as $key => $cont) {
+        $bg[$cont->type] = $cont->status === 1 ? 'bg-success' : 'bg-danger';
+    }
 
+    ?>
     <div class="row">
         <div class="pr-5 pl-5 col-md-5 col-sm-6 mb-3">
-            <div class="card text-white bg-primary o-hidden h-100">
+            <div class="card text-white bg-primary {{$bg['carousel']??''}} o-hidden h-100">
                 <div class="card-body"
                      onclick="window.location.href='{{url('@dmin/content/carousel/'.$navDetail->id)}}'">
                     <div class="card-body-icon">
@@ -41,7 +40,7 @@
 
 
         <div class="pr-5 pl-5 col-md-5 col-sm-6 mb-3">
-            <div class="card text-white bg-primary o-hidden h-100">
+            <div class="card text-white bg-primary {{$bg['ads']??''}} o-hidden h-100">
                 <div class="card-body"
                      onclick="window.location.href='{{url('@dmin/content/ads/'.$navDetail->id)}}'">
                     <div class="card-body-icon">
@@ -59,7 +58,7 @@
         </div>
 
         <div class="pr-5 pl-5 col-md-5 col-sm-6 mb-3">
-            <div class="card text-white bg-primary o-hidden h-100">
+            <div class="card text-white bg-primary {{$bg['detail']??''}} o-hidden h-100">
                 <div class="card-body"
                      onclick="window.location.href='{{url('@dmin/content/detail/'.$navDetail->id)}}'">
                     <div class="card-body-icon">
@@ -77,7 +76,7 @@
         </div>
 
         <div class="pr-5 pl-5 col-md-5 col-sm-6 mb-3">
-            <div class="card text-white bg-primary o-hidden h-100">
+            <div class="card text-white bg-primary {{$bg['list']??''}} o-hidden h-100">
                 <div class="card-body"
                      onclick="window.location.href='{{url('@dmin/content/list/'.$navDetail->id)}}'">
                     <div class="card-body-icon">

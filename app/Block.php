@@ -19,19 +19,9 @@ class Block extends Model
         return $this->hasOne(Image::class, 'block_id');
     }
 
-    public function AdsData()
-    {
-        return $this->hasOne(Ads::class, 'block_id');
-    }
-
     public function AudioData()
     {
         return $this->hasOne(Audio::class, 'block_id');
-    }
-
-    public function CarouselData()
-    {
-        return $this->hasOne(Carousel::class, 'block_id');
     }
 
     public function VideoData()

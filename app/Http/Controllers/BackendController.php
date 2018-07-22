@@ -8,6 +8,7 @@ use App\Image;
 use App\Nav;
 use App\Navbar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class BackendController extends Controller
 {
@@ -154,5 +155,18 @@ class BackendController extends Controller
         }
 
         return redirect()->back()->with('success', $request->type . ' Block added !');
+    }
+
+    function BlockDelete($type, $id)
+    {
+        $image = Block::find($id)->ImageData->title ?? '';
+        $img_path = public_path('images/' . $type . '/' . $image);
+        if (File::exists($img_path)) {
+            File::delete($img_path);
+        }
+
+        Block::find($id)->delete();
+        return redirect()->back()->with('fail', 'Block Deleted !');
+
     }
 }

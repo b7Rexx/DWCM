@@ -30,5 +30,6 @@ Route::group(['prefix' => '@dmin'], function () {
 
     Route::get('block/add/{type}/{id}', 'BackendController@Block');
     Route::post('block/add', 'BackendController@BlockAction')->name('admin-add-block');
+    Route::get('block/delete/{type}/{id}', 'BackendController@BlockDelete');
 
 });
