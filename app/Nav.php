@@ -11,6 +11,6 @@ class Nav extends Model
 
     public function navbar()
     {
-        return $this->hasOne(Navbar::class, 'navbar_id');
+        return $this->belongsTo('app\Navbar', 'navbar_id');
     }
 }

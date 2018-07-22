@@ -35,11 +35,18 @@
 
     <div>
         <?php
-//        foreach ($nav as $asd) {
+        foreach ($navbar as $asd) {
+//            var_dump($asd->nav);
             echo "<pre>";
-            print_r($nav);
+            print_r($asd->nav);
+            if (!empty($asd->nav->name)) {
+                echo $asd->nav->name.'ok';
+            }
             echo "</pre>";
-//        }
+        }
+        echo "<pre>";
+
+        echo "</pre>";
         ?>
     </div>
 @endsection

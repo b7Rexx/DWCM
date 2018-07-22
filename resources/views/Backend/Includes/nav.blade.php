@@ -35,26 +35,33 @@
                             <span class="nav-link-text">{{$navbarItem->name}}</span>
                         </a>
                         <ul class="sidenav-second-level collapse" id="{{str_replace(' ','-',$navbarItem->name)}}">
+                            @forelse($navbarItem->nav as $list)
+                                <li>
+                                    <a href="{{url('@dmin/nav/view/'.$list->id)}}">
+                                        <i class="fa fa-fw fa-file text-info d-inline"> {{$list->name}}</i>
+                                    </a>
+                                </li>
+                            @empty
+
+                            @endforelse
                             <li>
-                                <a href="login.html"><i class="fa fa-fw fa-file"></i> Login Page</a>
+                                <a href="{{url('@dmin/nav/add/'.$navbarItem->id)}}">
+                                    <i class="fa fa-plus text-warning"> Add Blank Page</i>
+                                </a>
                             </li>
-                            <li>
-                                <a href="register.html">Registration Page</a>
-                            </li>
-                            <li>
-                                <a href="forgot-password.html">Forgot Password Page</a>
-                            </li>
-                            <li>
-                                <a href="blank.html">Blank Page</a>
-                            </li>
+
                         </ul>
                     </li>
                 @elseif($navbarItem->dropdown === 0)
                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{$navbarItem->name}}">
-                        <a class="nav-link text-info">
-                            <i class="fa fa-fw fa-file"></i>
-                            <span class="nav-link-text">{{$navbarItem->name}}</span>
-                        </a>
+                        @forelse($navbarItem->nav as $navId)
+                            <a class="nav-link text-info" href="{{url('@dmin/nav/view/'.$navId->id)}}">
+                                <i class="fa fa-fw fa-file"></i>
+                                <span class="nav-link-text">{{$navbarItem->name}}</span>
+                            </a>
+                        @empty
+                        @endforelse
+
                     </li>
                 @endif
             @empty

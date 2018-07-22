@@ -9,6 +9,9 @@
         <a href="{{route('admin-add-navbar')}}" class="btn btn-warning pl-5 pr-5"><i class="fa fa-plus"></i> Add Navbar</a>
     </div>
     <br>
+
+    @include('backend.Includes.message')
+
     <div class="row">
         <table class="table table-striped">
             <tr>
@@ -17,6 +20,7 @@
                 <th>Dropdown</th>
                 <th>status</th>
                 <th>created at</th>
+                <th>action</th>
             </tr>
             @forelse($navbar as $key=>$item)
                 <tr>
@@ -25,6 +29,11 @@
                     <td>{{$item->dropdown}}</td>
                     <td>{{$item->status}}</td>
                     <td>{{\Carbon\Carbon::parse($item->created_at)->diffForHumans()}}</td>
+                    <td>
+                        <a href="{{url('@dmin/navbar/delete/'.$item->id)}}" onclick="confirm('Are you sure?')">
+                            <i class="fa fa-trash btn btn-danger btn-xs"></i>
+                        </a>
+                    </td>
                 </tr>
             @empty
                 <tr>
