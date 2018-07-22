@@ -27,8 +27,22 @@
                 <tr>
                     <td>{{++$key}}</td>
                     <td>{{$item->name}}</td>
-                    <td>{{$item->dropdown}}</td>
-                    <td>{{$item->status}}</td>
+                    <td>
+                        @if($item->dropdown == 0)
+                            <i class="fa fa-times text-danger"></i>
+                        @else
+                            <i class="fa fa-check text-success"></i>
+                        @endif
+                    </td>
+                    <td>
+                        <a title="change status" href="{{url('@dmin/status/navbar/'.$item->id)}}"
+                           @if($item->status ==1)
+                           class="fa fa-dot-circle-o btn btn-success"
+                           @else
+                           class="fa fa-dot-circle-o btn btn-danger"
+                                @endif
+                        ></a>
+                    </td>
                     <td>{{$item->placement}}</td>
                     <td>{{\Carbon\Carbon::parse($item->created_at)->diffForHumans()}}</td>
                     <td>

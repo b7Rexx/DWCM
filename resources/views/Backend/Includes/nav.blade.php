@@ -25,6 +25,8 @@
                 </a>
             </li>
 
+            <li class=" bg-info" style="font-size: 3px">.</li>
+
             @forelse($navbar as $navbarItem)
                 @if($navbarItem->dropdown === 1)
                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
@@ -66,6 +68,7 @@
                 @endif
             @empty
             @endforelse
+            <li class=" bg-info" style="font-size: 3px">.</li>
 
         </ul>
         <ul class="navbar-nav sidenav-toggler">

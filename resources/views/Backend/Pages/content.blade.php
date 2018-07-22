@@ -36,7 +36,15 @@
                         <td><?php echo substr($item->detail, 0, 30)?></td>
                     @endif
 
-                    <td>{{$item->status}}</td>
+                    <td>
+                        <a title="change status" href="{{url('@dmin/status/block/'.$item->id)}}"
+                           @if($item->status ==1)
+                           class="fa fa-dot-circle-o btn btn-success"
+                           @else
+                           class="fa fa-dot-circle-o btn btn-danger"
+                                @endif
+                        ></a>
+                    </td>
                     <td>
                         @if($item->ImageData)
                             <a href="<?php

@@ -6,7 +6,15 @@
 
 @section('body')
     <div class="row float-right">
-        <a href="{{url('@dmin/nav/delete/'.$navDetail->id)}}" class="fa fa-trash fa-2x btn btn-danger"
+        <a href="{{url('@dmin/status/nav/'.$navDetail->id)}}" class="btn alert-warning">
+            @if($navDetail->status == 1)
+                <i class="fa fa-dot-circle-o fa-2x text-success"></i>
+            @else
+                <i class="fa fa-dot-circle-o fa-2x text-danger"></i>
+            @endif
+            <b>Enable/Disable</b>
+        </a>
+        <a href="{{url('@dmin/nav/delete/'.$navDetail->id)}}" class="fa fa-trash fa-2x p-2 ml-5 btn btn-danger"
            onclick="return confirm('Are you sure?')"></a>
     </div>
     <b class="alert alert-success form-control col-sm-6 ml-3">{{$navDetail->name}}</b>
@@ -52,7 +60,7 @@
                 <a class="card-footer text-white clearfix small z-1"
                    href="{{url('@dmin/status/content/ads/'.$navDetail->id)}}">
 
-                <span class="float-left">Click here! to change Status</span>
+                    <span class="float-left">Click here! to change Status</span>
                     <span class="float-right">
                 <i class="fa fa-angle-right"></i>
               </span>
@@ -91,7 +99,7 @@
                 <a class="card-footer text-white clearfix small z-1"
                    href="{{url('@dmin/status/content/list/'.$navDetail->id)}}">
 
-                <span class="float-left">Click here! to change Status</span>
+                    <span class="float-left">Click here! to change Status</span>
                     <span class="float-right">
                 <i class="fa fa-angle-right"></i>
               </span>

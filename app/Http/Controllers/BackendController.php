@@ -67,6 +67,13 @@ class BackendController extends Controller
         return redirect()->back()->with('fail', 'Failed to delete navbar !');
     }
 
+    function navbarStatusChange($id)
+    {
+        $stat = Navbar::find($id);
+        $this->changeStatus($stat);
+        return redirect()->back();
+
+    }
 
     /*********************** NAV ******************/
 
@@ -100,6 +107,12 @@ class BackendController extends Controller
         return redirect()->back()->with('fail', 'Failed to delete page !');
     }
 
+    function navStatusChange($id)
+    {
+        $stat = Nav::find($id);
+        $this->changeStatus($stat);
+        return redirect()->back();
+    }
 
     /*********************** CONTENT ******************/
 
@@ -198,4 +211,24 @@ class BackendController extends Controller
         return redirect()->back()->with('fail', 'Block Deleted !');
 
     }
+
+    function blockStatusChange($id)
+    {
+        $stat = Block::find($id);
+        $this->changeStatus($stat);
+        return redirect()->back();
+    }
+
+
+    //Status Change
+    private function changeStatus($stat)
+    {
+        if ($stat->status == 1) {
+            $change = 0;
+        } else {
+            $change = 1;
+        }
+        $stat->update(['status' => $change]);
+    }
+
 }

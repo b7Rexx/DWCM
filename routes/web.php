@@ -33,4 +33,10 @@ Route::group(['prefix' => '@dmin'], function () {
     Route::get('block/delete/{type}/{id}', 'BackendController@BlockDelete');
 
     Route::get('status/content/{type}/{id}', 'BackendController@ContentStatusChange');
+    Route::get('status/nav/{id}', 'BackendController@navStatusChange');
+    Route::get('status/navbar/{id}', 'BackendController@navbarStatusChange');
+    Route::get('status/block/{id}', 'BackendController@blockStatusChange');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
