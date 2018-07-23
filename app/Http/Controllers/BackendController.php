@@ -163,6 +163,12 @@ class BackendController extends Controller
 
     function Block($type, $id)
     {
+        $this->_data['animation'] = [
+            'fade-up', 'fade-down', 'fade-right', 'fade-left', 'flip-left', 'flip-right', 'flip-up', 'flip-down',
+            'zoom-in', 'zoom-in-up', 'zoom-in-dowm', 'zoom-out', 'zoom-out-up', 'zoom-out-dowm', 'fade-up-right', 'fade-up-left', 'fade-down-right', 'fade-down-left',
+            'zoom-in-left', 'zoom-in-right', 'zoom-out-left', 'zoom-out-right',
+
+        ];
         $this->_data['contentDetail'] = Content::find($id);
         $this->_data['type'] = $type;
         return view($this->_path . 'block', $this->_data);
@@ -174,6 +180,7 @@ class BackendController extends Controller
         $data['quote'] = $request->quote ? $request->quote : '';
         $data['detail'] = $request->detail ? $request->detail : '';
         $data['content_id'] = $request->content_id;
+        $data['animation'] = $request->animation;
 
         $last_id = Block::create($data)->id;
 

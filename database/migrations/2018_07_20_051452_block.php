@@ -17,6 +17,7 @@ class Block extends Migration
             $table->increments('id');
             $table->text('name');
             $table->boolean('status')->default('1');
+            $table->string('animation')->nullable();
             $table->text('detail')->nullable();
             $table->text('quote')->nullable();
             $table->integer('content_id')->unsigned();

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Block extends Model
 {
     protected $table = 'block';
-    protected $fillable = ['name', 'detail', 'quote', 'content_id', 'status'];
+    protected $fillable = ['name', 'detail', 'quote', 'animation', 'content_id', 'status'];
 
     public function content()
     {

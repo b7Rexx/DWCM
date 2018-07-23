@@ -17,6 +17,15 @@
 
                 {{--form selector--}}
                 @include('Backend.Block.Add.'.$type)
+                <br>
+                <b><i class="fa fa-angellist"></i> Put animation to block : </b>
+                <select name="animation" class="form-control">
+                    <option value="none"> --- &nbsp;&nbsp;None &nbsp;&nbsp;----</option>
+                    @forelse($animation as $animate)
+                        <option value="{{$animate}}"> ---&nbsp;&nbsp;&nbsp; {{$animate}} &nbsp;&nbsp;&nbsp;---</option>
+                    @empty
+                    @endforelse
+                </select>
 
                 <input type="text" name="content_id" value="{{$contentDetail->id}}" style="display: none;">
                 <input type="text" name="type" value="{{$type}}" style="display: none;">
