@@ -25,6 +25,7 @@ Route::group(['prefix' => '@dmin'], function () {
 
 
     Route::get('content/{type}/{id}', 'BackendController@Content');
+    Route::post('content/title', 'BackendController@updateListTitle')->name('admin-update-content-list');
 
     Route::get('block/add/{type}/{id}', 'BackendController@Block');
     Route::post('block/add', 'BackendController@BlockAction')->name('admin-add-block');
@@ -34,6 +35,8 @@ Route::group(['prefix' => '@dmin'], function () {
     Route::get('status/nav/{id}', 'BackendController@navStatusChange');
     Route::get('status/navbar/{id}', 'BackendController@navbarStatusChange');
     Route::get('status/block/{id}', 'BackendController@blockStatusChange');
+
+    Route::get('cssAdmin','BackendController@cssAdmin')->name('admin-css');
 });
 
 Route::get('/{navbar?}/{nav?}/{block?}/{action?}', 'FrontendController@main')->name('home');

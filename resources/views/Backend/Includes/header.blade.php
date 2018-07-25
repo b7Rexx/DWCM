@@ -9,4 +9,5 @@
     <title>@yield('title','SB Admin - Start Bootstrap Template')</title>
     <link rel="stylesheet" href="{{url('css/app.css')}}">
     <link rel="stylesheet" href="{{url('css/sb-admin.css')}}">
+
 </head>

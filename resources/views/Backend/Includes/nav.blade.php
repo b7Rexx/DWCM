@@ -25,7 +25,7 @@
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link text-success" href="index.html">
+                <a class="nav-link text-success" href="{{route('admin-css')}}">
                     <i class="fa fa-fw fa-dashboard"></i>
                     <span class="nav-link-text">CSS</span>
                 </a>

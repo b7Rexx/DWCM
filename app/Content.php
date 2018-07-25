@@ -18,4 +18,8 @@ class Content extends Model
     {
         return $this->hasMany(Block::class, 'content_id');
     }
+
+    public function activeBlock(){
+        return $this->hasMany(Block::class, 'content_id')->where('status','=','1');
+    }
 }

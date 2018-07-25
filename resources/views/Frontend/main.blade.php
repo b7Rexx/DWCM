@@ -18,7 +18,7 @@
 
 
 {{-- BODY CONTAINER--}}
-<div class="container bg-warning">
+<div class="container bg-main">
     @include('Frontend.Includes.nav')
 
     <div class="row">
@@ -26,6 +26,7 @@
             @include('Frontend.content.carousel')
         @endif
     </div>
+    <br>
     <div class="row">
         <div class="col-md-8">
             @if($detail??0)
@@ -33,16 +34,14 @@
             @endif
         </div>
         <div class="col-md-4">
-            @if($ads??0)
-                @include('Frontend.content.ads')
+            @if($related??0)
+                @include('Frontend.content.related')
             @endif
         </div>
     </div>
-    <div class="row">
-        @if($list??0)
-            @include('Frontend.content.list')
-        @endif
-    </div>
+    @if($list??0)
+        @include('Frontend.content.list')
+    @endif
 </div>
 
 

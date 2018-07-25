@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" href="{{route('home')}}">
         <img src="{{url('images/logo/'.$main['logo'])}}" alt="logo" style="height: 50px;width:50px">
         {{$main['name']??''}}

@@ -1,7 +1,7 @@
 @extends('Backend.backend')
 
 @section('title')
-    Block - Ads
+    Block
 @endsection
 
 @section('body')

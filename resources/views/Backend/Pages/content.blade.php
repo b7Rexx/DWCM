@@ -13,6 +13,25 @@
                 Add</i>
         </b>
         @include('Backend.Includes.message')
+
+        @if($contentDetail->type ==='list')
+            <form action="{{route('admin-update-content-list')}}" method="post">
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <b><i class="fa fa-header"></i> List Title :</b>
+                    </div>
+                    <div class="col-md-6">
+                        {{csrf_field()}}
+                        <input type="text" name="list" class="form-control" value="{{$contentDetail->name}}">
+                        <input type="text" name="id" value="{{$contentDetail->id}}" style="display: none">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="submit" class="btn btn-success" value="Change">
+                    </div>
+                </div>
+                <br>
+            </form>
+        @endif
         <table class="table table-striped">
             <tr>
                 <th>s/n</th>
@@ -54,7 +73,7 @@
                         @endif
 
                         @if($item->VideoData)
-                            <a href="">
+                            <a href="//www.youtube.com/embed/{{$item->VideoData->title}}">
                                 <i class="fa fa-video-camera fa-2x m-1"></i></a>
                         @endif
 

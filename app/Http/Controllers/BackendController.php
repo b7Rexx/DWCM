@@ -204,6 +204,12 @@ class BackendController extends Controller
 
     }
 
+    function updateListTitle(Request $request)
+    {
+        Content::find($request->id)->update(['name' => $request->list]);
+        return redirect()->back()->with('success', 'List title updated !');
+    }
+
     function ContentStatusChange($type, $id)
     {
         $updateStat = Content::where('nav_id', '=', $id)->where('type', '=', $type);
@@ -262,7 +268,8 @@ class BackendController extends Controller
         }
 
         if (isset($request->video)) {
-            Video::create(['title' => $request->video, 'block_id' => $last_id]);
+            $video = explode('&', explode('=', $request->video)[1])[0];
+            Video::create(['title' => $video, 'block_id' => $last_id]);
         }
 
         return redirect()->back()->with('success', $request->type . ' Block added !');
@@ -300,4 +307,9 @@ class BackendController extends Controller
         $stat->update(['status' => $change]);
     }
 
+
+    //CSS
+    function cssAdmin(){
+        return view($this->_path . 'cssAdmin', $this->_data);
+    }
 }

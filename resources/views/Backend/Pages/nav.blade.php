@@ -49,16 +49,16 @@
 
 
         <div class="pr-5 pl-5 col-md-5 col-sm-6 mb-3">
-            <div class="card text-white bg-primary {{$bg['ads']??''}} o-hidden h-100">
+            <div class="card text-white bg-primary {{$bg['related']??''}} o-hidden h-100">
                 <div class="card-body"
-                     onclick="window.location.href='{{url('@dmin/content/ads/'.$navDetail->id)}}'">
+                     onclick="window.location.href='{{url('@dmin/content/related/'.$navDetail->id)}}'">
                     <div class="card-body-icon">
                         <i class="fa fa-fw fa-angellist"></i>
                     </div>
                     <div class="mr-5"><i class="fa fa-plus fa-2x"></i> <b>Ads</b></div>
                 </div>
                 <a class="card-footer text-white clearfix small z-1"
-                   href="{{url('@dmin/status/content/ads/'.$navDetail->id)}}">
+                   href="{{url('@dmin/status/content/related/'.$navDetail->id)}}">
 
                     <span class="float-left">Click here! to change Status</span>
                     <span class="float-right">

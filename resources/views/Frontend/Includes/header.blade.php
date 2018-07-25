@@ -9,5 +9,9 @@
     <link rel="icon" href="{{url('images/logo/'.$main['logo'])}}">
     <title>@yield('title',$main['name'])</title>
     <link rel="stylesheet" href="{{url('css/app.css')}}">
+    <link rel="stylesheet" href="{{url('css/style.css')}}">
+    <style>
+
+    </style>
 </head>
 <body>

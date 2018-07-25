@@ -1,12 +1,12 @@
 <div id="demo" class="carousel slide" data-ride="carousel">
     <ul class="carousel-indicators">
-        @forelse($carousel->block as $key=>$car)
+        @forelse($carousel->activeBlock as $key=>$car)
             <li data-target="#demo" data-slide-to="{{$key}}" class="{{$key==0?'active':''}}"></li>
         @empty
         @endforelse
     </ul>
     <div class="carousel-inner">
-        @forelse($carousel->block as $key=>$car)
+        @forelse($carousel->activeBlock as $key=>$car)
             <div class="carousel-item {{$key == 0?'active':''}}">
                 <img src="{{url('images/carousel/'.$car->imageData->title)}}" alt="image">
                 <div class="carousel-caption">

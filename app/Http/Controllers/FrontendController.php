@@ -22,13 +22,19 @@ class FrontendController extends Controller
             $arr[$data->name] = $data->value;
         }
         $this->_data['main'] = $arr;
-        if (empty($arr['name'])) redirect()->to(route('admin-main'));
     }
 
     function main($navbar = '', $nav = '', $block = '', $action = '')
     {
-        if (empty($nav))
-            $nav = Nav::where('status', '=', '1')->first()->id;
+        if (empty($this->_data['main']['name'])) return redirect()->to(route('admin-main'));
+
+        if (empty($nav)) {
+            $check = Nav::where('status', '=', '1')->first();
+            if (!$check) {
+                return redirect()->to(route('admin-add-navbar'));
+            }
+            $nav = $check->id;
+        }
 
         if (!$this->navbar($navbar))
             return redirect()->to(route('home'));
