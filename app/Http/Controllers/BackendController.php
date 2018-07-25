@@ -6,6 +6,7 @@ use App\Audio;
 use App\Block;
 use App\Content;
 use App\Image;
+use App\Main;
 use App\Nav;
 use App\Navbar;
 use App\Video;
@@ -26,6 +27,61 @@ class BackendController extends Controller
     function home()
     {
         return view($this->_path . 'home', $this->_data);
+    }
+
+    function main()
+    {
+        $main = Main::all();
+        $arr = [];
+        foreach ($main as $data) {
+            $arr[$data->name] = $data->value;
+        }
+        $this->_data['main'] = $arr;
+
+        return view($this->_path . 'main', $this->_data);
+    }
+
+    function mainUpdate(Request $request)
+    {
+        $data['name'] = $request->name ?? '';
+        $data['short_name'] = $request->short_name ?? '';
+        $data['quote'] = $request->quote ?? '';
+        $data['email'] = $request->email ?? '';
+        $data['phone'] = $request->phone ?? '';
+        $data['fb'] = $request->fb ?? '';
+        $data['insta'] = $request->insta ?? '';
+        $data['yt'] = $request->yt ?? '';
+
+        if ($request->hasFile('logo')) {
+            $logo = 'logo.' . $request->logo->getClientOriginalExtension();
+            $request->logo->move(public_path('images/logo/'), $logo);
+            $insert = ['name' => 'logo', 'value' => $logo];
+
+            if (Main::where('name', '=', 'logo')->first() !== null) {
+                $image = Main::where('name', '=', 'logo')->value ?? '';
+                $img_path = public_path('images/logo/' . $image);
+                if (File::exists($img_path)) {
+                    File::delete($img_path);
+                }
+
+                Main::where('name', '=', 'logo')->first()->update($insert);
+            } else {
+                Main::create($insert);
+            }
+        }
+
+        foreach ($data as $key => $value) {
+            $insert = ['name' => $key, 'value' => $value];
+            if (Main::where('name', '=', $key)->first() !== null) {
+                Main::where('name', '=', $key)->first()->update($insert);
+            } else {
+                Main::create($insert);
+            }
+        }
+
+        return redirect()->back()->with('success', 'Updated website info !');
+
+//        return redirect()->back()->with('fail', 'Failed to update website info !');
     }
 
     /*********************** NAVBAR ******************/
@@ -70,9 +126,11 @@ class BackendController extends Controller
     function navbarStatusChange($id)
     {
         $stat = Navbar::find($id);
+        foreach ($stat->nav as $nav) {
+            $this->changeStatus($nav);
+        }
         $this->changeStatus($stat);
         return redirect()->back();
-
     }
 
     /*********************** NAV ******************/
@@ -110,6 +168,10 @@ class BackendController extends Controller
     function navStatusChange($id)
     {
         $stat = Nav::find($id);
+        $navbar = $stat->navbar;
+        if (!$navbar->dropdown) {
+            $this->changeStatus($navbar);
+        }
         $this->changeStatus($stat);
         return redirect()->back();
     }

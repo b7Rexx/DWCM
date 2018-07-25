@@ -2,7 +2,7 @@
 
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="{{route('home')}}">Start Bootstrap</a>
+    <a class="navbar-brand" href="{{route('home')}}"><i class="fa fa-newspaper-o"></i> Visit webpage!</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
             data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -19,7 +19,7 @@
             </li>
 
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link text-success" href="index.html">
+                <a class="nav-link text-success" href="{{route('admin-main')}}">
                     <i class="fa fa-fw fa-dashboard"></i>
                     <span class="nav-link-text">MAIN</span>
                 </a>

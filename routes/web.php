@@ -2,15 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
-
-
 /********************* Backend routes ***************/
 Route::group(['prefix' => '@dmin'], function () {
     Route::get('/', 'BackendController@home')->name('admin-home');
     Route::get('home', 'BackendController@home');
+    Route::get('main', 'BackendController@main')->name('admin-main');
+    Route::post('main', 'BackendController@mainUpdate')->name('admin-main-update');
+
     Route::get('navbar', 'BackendController@navbar')->name('admin-navbar');
 
     Route::get('add-navbar', 'BackendController@navbarAdd')->name('admin-add-navbar');
@@ -37,6 +35,5 @@ Route::group(['prefix' => '@dmin'], function () {
     Route::get('status/navbar/{id}', 'BackendController@navbarStatusChange');
     Route::get('status/block/{id}', 'BackendController@blockStatusChange');
 });
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/{navbar?}/{nav?}/{block?}/{action?}', 'FrontendController@main')->name('home');

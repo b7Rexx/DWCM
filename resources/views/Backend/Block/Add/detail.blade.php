@@ -8,15 +8,22 @@
 <input type="text" name="detail" class="form-control">
 <br>
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-7">
         <b><i class="fa fa-image"></i> Upload Image :</b>
-        <input type="file" name="image" class="form-control">
+        <input type="file" name="image" class="form-control" required>
     </div>
-    <div class="col-sm-6">
-        <b><i class="fa fa-music"></i> Upload Audio :</b>
-        <input type="file" name="audio" class="form-control">
+    <div class="col-sm-1">
+        <i class="text-warning lead text-center">OR </i>
+    </div>
+    <div class="col-sm-4">
+        <b><i class="fa fa-image"></i> Choose from existing images :</b>
+        <button class="btn btn-primary">Select Image</button>
     </div>
 </div>
+
+<br>
+<b><i class="fa fa-music"></i> Upload Audio :</b>
+<input type="file" name="audio" class="form-control">
 <br>
 <b><i class="fa fa-video-camera"></i> Enter Video Url :</b>
 <input type="text" name="video" class="form-control">
