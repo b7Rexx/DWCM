@@ -10,7 +10,7 @@
 <div class="row">
     <div class="col-sm-7">
         <b><i class="fa fa-image"></i> Upload Image :</b>
-        <input type="file" name="image" class="form-control" required>
+        <input type="file" name="image" class="form-control">
     </div>
     <div class="col-sm-1">
         <i class="text-warning lead text-center">OR </i>
