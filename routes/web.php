@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 /********************* Backend routes ***************/
-Route::group(['prefix' => '@dmin'], function () {
+Route::group(['prefix' => '@dmin', 'middleware' => 'auth:web'], function () {
     Route::get('/', 'BackendController@home')->name('admin-home');
     Route::get('home', 'BackendController@home');
     Route::get('main', 'BackendController@main')->name('admin-main');
@@ -36,8 +36,13 @@ Route::group(['prefix' => '@dmin'], function () {
     Route::get('status/navbar/{id}', 'BackendController@navbarStatusChange');
     Route::get('status/block/{id}', 'BackendController@blockStatusChange');
 
-    Route::get('cssAdmin','BackendController@cssAdmin')->name('admin-css');
-    Route::post('cssAdmin','BackendController@cssChange')->name('admin-css-change');
+    Route::get('cssAdmin', 'BackendController@cssAdmin')->name('admin-css');
+    Route::post('cssAdmin', 'BackendController@cssChange')->name('admin-css-change');
 });
 
-Route::get('/{navbar?}/{nav?}/{block?}/{action?}', 'FrontendController@main')->name('home');
+Route::get('/{navbar?}/{nav?}/{block?}/{action?}', 'FrontendController@main')->name('home')->where('navbar', '[0-9]+')->where('nav', '[0-9]+');
+
+
+Route::get('login', 'LoginController@index')->name('login');
+Route::post('login', 'LoginController@loginAction')->name('login-action');
+Route::get('logout', 'LoginController@logout')->name('logout');
