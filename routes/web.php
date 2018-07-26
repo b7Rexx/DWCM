@@ -46,3 +46,13 @@ Route::get('/{navbar?}/{nav?}/{block?}/{action?}', 'FrontendController@main')->n
 Route::get('login', 'LoginController@index')->name('login');
 Route::post('login', 'LoginController@loginAction')->name('login-action');
 Route::get('logout', 'LoginController@logout')->name('logout');
+
+//API
+Route::get('api/imagelist', function () {
+    $array = [];
+    foreach (\App\Image::all() as $key => $img) {
+        $array[$key] = $img->title;
+    }
+        $array = array_unique($array);
+    return response($array);
+});

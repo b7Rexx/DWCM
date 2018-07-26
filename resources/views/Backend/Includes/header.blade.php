@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>@yield('title','SB Admin - Start Bootstrap Template')</title>
+    <link rel="icon" href="{{url('images/logo/adminlogo.gif')}}">
+    <title>DW - @yield('title','SB Admin - Start Bootstrap Template')</title>
     <link rel="stylesheet" href="{{url('css/app.css')}}">
     <link rel="stylesheet" href="{{url('css/sb-admin.css')}}">
 

@@ -6,7 +6,7 @@
             <div class="row">
                 @if(isset($det->imageData->title))
                     <div class="col-sm-3">
-                        <img class="text-right" src="{{url('images/detail/'.$det->imageData->title)}}" alt="image">
+                        <img class="text-right" src="{{url('images/upload/'.$det->imageData->title)}}" alt="image">
                     </div>
                 @endif
                 @if(isset($det->quote))

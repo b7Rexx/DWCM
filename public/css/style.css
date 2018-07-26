@@ -106,6 +106,10 @@ header a > i, header a {
     text-shadow: 1px 1px 1px black;
 }
 
+header a:hover {
+    text-shadow: none;
+}
+
 .header-right {
     font-size: 1.2em;
 }

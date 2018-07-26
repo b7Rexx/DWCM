@@ -7,13 +7,14 @@
 <div class="row">
     <div class="col-sm-7">
         <b><i class="fa fa-image"></i> Upload Carousel Image :</b>
-        <input type="file" name="image" class="form-control" required>
+        <input type="file" name="image" class="form-control">
     </div>
     <div class="col-sm-1">
         <i class="text-warning lead text-center">OR </i>
     </div>
     <div class="col-sm-4">
-        <b><i class="fa fa-image"></i> Choose from existing images :</b>
-        <button class="btn btn-primary">Select Image </button>
+        <div id="image-vue">
+            <image-component></image-component>
+        </div>
     </div>
 </div>

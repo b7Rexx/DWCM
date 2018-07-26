@@ -17,7 +17,7 @@
                 <h3>{{$lis->name??''}}</h3>
 
                 @if(isset($lis->imageData->title))
-                    <img class="text-right" src="{{url('images/list/'.$lis->imageData->title)}}"
+                    <img class="text-right" src="{{url('images/upload/'.$lis->imageData->title)}}"
                          alt="image">
                 @endif
                 @if(isset($lis->quote))

@@ -68,7 +68,7 @@
                         @if($item->ImageData)
                             <a href="<?php
                             $img = isset($item->ImageData->title) ? $item->ImageData->title : '';
-                            echo url('images/' . $contentDetail->type . '/' . $img);
+                            echo url('images/upload/' . $img);
                             ?>"><i class="fa fa-image fa-2x m-1"></i></a>
                         @endif
 

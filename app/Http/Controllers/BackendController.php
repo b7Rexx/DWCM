@@ -257,9 +257,11 @@ class BackendController extends Controller
         if ($request->hasfile('image')) {
 
             $imageName = time() . '.' . request()->image->getClientOriginalExtension();
-            request()->image->move(public_path('images/' . $request->type), $imageName);
+            request()->image->move(public_path('images/upload/'), $imageName);
 
             Image::create(['title' => $imageName, 'block_id' => $last_id]);
+        } elseif (!empty($request->select_image)) {
+            Image::create(['title' => $request->select_image, 'block_id' => $last_id]);
         }
 
         if ($request->hasfile('audio')) {
@@ -279,9 +281,15 @@ class BackendController extends Controller
     function BlockDelete($type, $id)
     {
         $image = Block::find($id)->ImageData->title ?? '';
-        $img_path = public_path('images/' . $type . '/' . $image);
-        if (File::exists($img_path)) {
-            File::delete($img_path);
+        $check = Image::where('title', '=', $image)->get();
+        foreach ($check as $key => $item) {
+            $val = $key;
+        }
+        if ($val < 1) {
+            $img_path = public_path('images/upload/' . $image);
+            if (File::exists($img_path)) {
+                File::delete($img_path);
+            }
         }
 
         Block::find($id)->delete();

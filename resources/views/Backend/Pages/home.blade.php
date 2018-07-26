@@ -1,7 +1,7 @@
 @extends('Backend.backend')
 
 @section('title')
-    TITLE HERE
+    home
 @endsection
 
 @section('body')

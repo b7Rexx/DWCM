@@ -8,7 +8,7 @@
 @forelse($related->activeBlock as $key=>$advertisement)
     @if($key<2)
         <div class="bg-related related" data-aos="{{$advertisement->animation}}">
-            <img src="{{url('images/related/'.$advertisement->imageData->title)}}" alt="image">
+            <img src="{{url('images/upload/'.$advertisement->imageData->title)}}" alt="image">
             <h3>{{$advertisement->name??''}}</h3>
         </div>
     @endif

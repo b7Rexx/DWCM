@@ -8,7 +8,10 @@
     <div class="carousel-inner">
         @forelse($carousel->activeBlock as $key=>$car)
             <div class="carousel-item {{$key == 0?'active':''}}">
-                <img src="{{url('images/carousel/'.$car->imageData->title)}}" alt="image">
+                @if(isset($car->imageData->title))
+                    <img src="{{url('images/upload/'.$car->imageData->title??'')}}" alt="image" style="min-height:200px">
+                @else
+                @endif
                 <div class="carousel-caption" data-aos="{{$car->animation}}">
                     <h3>{{$car->name}}</h3>
                     <blockquote>{{$car->quote}}</blockquote>
