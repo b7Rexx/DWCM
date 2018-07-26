@@ -22,6 +22,10 @@ class BackendController extends Controller
     {
         $this->_data['navbar'] = Navbar::all();
         $this->_data['nav'] = Nav::all();
+
+        $memory = (int)ini_get("memory_limit"); // Display your current value in php.ini (for example: 64M)
+        $this->_data['mem'] = $memory;
+
     }
 
     function home()
@@ -236,6 +240,11 @@ class BackendController extends Controller
 
     function BlockAction(Request $request)
     {
+        ini_set('memory_limit', '512000000');
+
+        $memory = (int)ini_get("memory_limit"); // Display your current value in php.ini (for example: 64M)
+        $this->_data['mem'] = $memory;
+
         $data['name'] = $request->name;
         $data['quote'] = $request->quote ? $request->quote : '';
         $data['detail'] = $request->detail ? $request->detail : '';

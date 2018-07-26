@@ -10,8 +10,12 @@
                     </div>
                 @endif
                 @if(isset($det->quote))
-                    <div class="col-sm-5">
-                        <blockquote class="text-left">{{$det->quote??''}}</blockquote>
+                    <div class="col-sm-5 text-left">
+                        <blockquote>{{$det->quote??''}}</blockquote>
+                        @if(isset($det->audioData->title))
+                            <br>
+                            <audio src="{{url('audio/'.$det->audioData->title??'')}}" controls style="width:100px;"></audio>
+                        @endif
                     </div>
                 @endif
                 <?php $vid = $det->videoData->title ?? '';?>

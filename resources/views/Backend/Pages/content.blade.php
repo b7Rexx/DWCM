@@ -78,7 +78,10 @@
                         @endif
 
                         @if($item->AudioData)
-                            <a href=""><i class="fa fa-music fa-2x m-1"></i></a>
+                            <a href="<?php
+                            $audio = isset($item->audioData->title) ? $item->audioData->title : '';
+                            echo url('audio/' . $audio);
+                            ?>"><i class="fa fa-music fa-2x m-1"></i></a>
                         @endif
 
                     </td>
