@@ -9,14 +9,14 @@
         @forelse($carousel->activeBlock as $key=>$car)
             <div class="carousel-item {{$key == 0?'active':''}}">
                 <img src="{{url('images/carousel/'.$car->imageData->title)}}" alt="image">
-                <div class="carousel-caption">
+                <div class="carousel-caption" data-aos="{{$car->animation}}">
                     <h3>{{$car->name}}</h3>
-                    <p>{{$car->quote}}</p>
+                    <blockquote>{{$car->quote}}</blockquote>
                 </div>
             </div>
         @empty
             <div class="carousel-item active">
-                <img src="{{url('images/logo/'.$main['logo']??'')}}" alt="logo">
+                <img height="100px">
                 <div class="carousel-caption">
                     <h2>{{$main['name']}}</h2>
                     <p>Add carousel image or Disable carousel !</p>

@@ -71,17 +71,9 @@ class BackendController extends Controller
         }
 
         foreach ($data as $key => $value) {
-            $insert = ['name' => $key, 'value' => $value];
-            if (Main::where('name', '=', $key)->first() !== null) {
-                Main::where('name', '=', $key)->first()->update($insert);
-            } else {
-                Main::create($insert);
-            }
+            $this->addMainData($key, $value);
         }
-
         return redirect()->back()->with('success', 'Updated website info !');
-
-//        return redirect()->back()->with('fail', 'Failed to update website info !');
     }
 
     /*********************** NAVBAR ******************/
@@ -307,9 +299,32 @@ class BackendController extends Controller
         $stat->update(['status' => $change]);
     }
 
+    private function addMainData($name, $value)
+    {
+        if (Main::where('name', '=', $name)->first() !== null) {
+            Main::where('name', '=', $name)->first()->update(['name' => $name, 'value' => $value]);
+        } else {
+            Main::create(['name' => $name, 'value' => $value]);
+        }
+    }
+
 
     //CSS
-    function cssAdmin(){
+    function cssAdmin()
+    {
         return view($this->_path . 'cssAdmin', $this->_data);
     }
+
+    function cssChange(Request $request)
+    {
+        if (!empty($request->head))
+            $this->addMainData('csshead', $request->head);
+
+        if (!empty($request->body))
+            $this->addMainData('cssbody', $request->body);
+
+        return redirect()->back()->with('success', 'css colors updated');
+    }
+
+
 }

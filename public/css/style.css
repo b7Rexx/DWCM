@@ -3,11 +3,24 @@
 }
 
 nav {
-    background: linear-gradient(grey, transparent, transparent, transparent);
+    /*background: linear-gradient(grey, transparent, transparent, transparent, transparent, transparent);*/
+    width: 100%;
 }
 
-.nav-link {
-    font-weight: bold;
+#stickyheader {
+    z-index: 20;
+}
+
+@media (min-width: 978px) {
+    #stickyheader {
+        height: 50px;
+        transition-duration: 0.5s;
+    }
+}
+
+.navbar a {
+    font-size: 1.1em;
+    text-shadow: 1px 1px 2px white;
 }
 
 .carousel-caption {
@@ -15,7 +28,7 @@ nav {
 }
 
 .bg-main {
-    background: floralwhite;
+    background: rgba(255, 255, 255, 0.4);
 }
 
 .carousel {
@@ -55,7 +68,6 @@ nav {
     background: rgba(200, 200, 200, 0.4);
     margin: 20px;
     padding: 10px;
-    color: gray;
     box-shadow: 1px 1px 15px gainsboro;
 }
 
@@ -69,13 +81,47 @@ nav {
     background: rgba(200, 200, 200, 0.4);
     margin: 15px;
     padding: 10px;
-    color: gray;
+    /*color: gray;*/
     box-shadow: 1px 1px 15px gainsboro;
 }
 
-.list img{
+.list h3 {
+    text-shadow: 1px 1px 5px whiteblack
+}
+
+.list img {
     height: 160px;
     width: 160px;
     border-radius: 5px;
 
+}
+
+blockquote {
+    /*color:black;*/
+    /*background: rgba(250,250,250,0.4);*/
+}
+
+header a > i, header a {
+    color: whitesmoke;
+    text-shadow: 1px 1px 1px black;
+}
+
+.header-right {
+    font-size: 1.2em;
+}
+
+footer {
+    /*background: gray;*/
+    color: white;
+    text-shadow: 1px 1px 4px black;
+}
+
+footer img {
+    height: 150px;
+    width: 150px;
+}
+
+footer a {
+    color: white;
+    text-shadow: 1px 1px 4px black;
 }

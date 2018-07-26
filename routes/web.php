@@ -37,6 +37,7 @@ Route::group(['prefix' => '@dmin'], function () {
     Route::get('status/block/{id}', 'BackendController@blockStatusChange');
 
     Route::get('cssAdmin','BackendController@cssAdmin')->name('admin-css');
+    Route::post('cssAdmin','BackendController@cssChange')->name('admin-css-change');
 });
 
 Route::get('/{navbar?}/{nav?}/{block?}/{action?}', 'FrontendController@main')->name('home');

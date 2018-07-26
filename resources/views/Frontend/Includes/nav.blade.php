@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg navbar-light" id="stickyheader">
     <a class="navbar-brand" href="{{route('home')}}">
         <img src="{{url('images/logo/'.$main['logo'])}}" alt="logo" style="height: 50px;width:50px">
         {{$main['name']??''}}
@@ -16,12 +16,12 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
-                            {{$navbar1->name}}
+                            <i class="fa fa-cloud"></i> {{$navbar1->name}}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @forelse($navbar1->nav as $nav_navbar)
                                 <a class="dropdown-item" href="{{url($navbar1->id.'/'.$nav_navbar->id)}}">
-                                    {{$nav_navbar->name}}
+                                    <i class="fa fa-bolt"></i> {{$nav_navbar->name}}
                                 </a>
                             @empty
                                 <div class="dropdown-divider"></div>
@@ -32,12 +32,12 @@
                 @else
                     <li class="nav-item">
                         <a class="nav-link" href="{{url($navbar1->id.'/'.$navbar1->nav[0]->id)}}">
-                            {{$navbar1->nav[0]->name}}
+                            <i class="fa fa-cloud"></i> {{$navbar1->nav[0]->name}}
                         </a>
                     </li>
                 @endif
             @empty
-            @endforelse
+            <i class="fa fa-bolt"></i> @endforelse
         </ul>
         {{--<form class="form-inline my-2 my-lg-0">--}}
             {{--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">--}}

@@ -13,7 +13,7 @@
 <div class="row">
     @forelse($list->activeBlock as $key=>$lis)
         <div class="col-sm-6 col-md-4">
-            <div class="text-center list">
+            <div class="text-center list" data-aos="{{$lis->animation}}">
                 <h3>{{$lis->name??''}}</h3>
 
                 @if(isset($lis->imageData->title))

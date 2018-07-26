@@ -16,10 +16,10 @@
 
 @include('Frontend.Includes.header')
 
+@include('Frontend.Includes.nav')
 
 {{-- BODY CONTAINER--}}
 <div class="container bg-main">
-    @include('Frontend.Includes.nav')
 
     <div class="row">
         @if($carousel??0)

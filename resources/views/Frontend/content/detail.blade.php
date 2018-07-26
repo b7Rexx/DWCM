@@ -1,6 +1,6 @@
 @forelse($detail->activeBlock as $key=>$det)
     @if($key<2)
-        <div class="text-center detail">
+        <div class="text-center detail" data-aos="{{$det->animation}}">
             <h3>{{$det->name??''}}</h3>
 
             <div class="row">

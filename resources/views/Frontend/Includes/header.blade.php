@@ -11,7 +11,42 @@
     <link rel="stylesheet" href="{{url('css/app.css')}}">
     <link rel="stylesheet" href="{{url('css/style.css')}}">
     <style>
+        .bg-body {
+            background: {{$main['cssbody']??'white'}};
+        }
+
+        <?php $csshead = $main['csshead']??'grey';?>
+        nav {
+            background: linear-gradient({{$csshead}}, transparent, transparent, transparent, transparent, transparent);
+        }
+
+        footer {
+            background: {{$csshead}};
+        }
+        header {
+            background: {{$csshead}};
+        }
 
     </style>
 </head>
-<body>
+<body class="bg-body">
+<header>
+    <div class="row">
+        <div class="col-sm-6 header-left">
+            <a href="#phone-to-{{$main['phone']}}">
+                <i class="fa fa-phone"></i>
+                {{$main['phone']??''}}
+            </a>
+            &nbsp; &nbsp; &nbsp;
+            <a href="#mail-to-{{$main['email']}}">
+                <i class="fa fa-envelope"></i>
+                {{$main['email']??''}}
+            </a>
+        </div>
+        <div class="col-sm-6 text-right p-1 header-right">
+            <a href="//{{$main['fb']??'#fb'}}"><i class="fa fa-facebook-square ml-2"></i></a>
+            <a href="//{{$main['yt']??'#yt'}}"><i class="fa fa-youtube ml-2"></i></a>
+            <a href="//{{$main['insta']??'#insta'}}"><i class="fa fa-instagram ml-2"></i></a>
+        </div>
+    </div>
+</header>
