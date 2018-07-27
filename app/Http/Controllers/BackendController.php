@@ -23,8 +23,12 @@ class BackendController extends Controller
         $this->_data['navbar'] = Navbar::all();
         $this->_data['nav'] = Nav::all();
 
-        $memory = (int)ini_get("memory_limit"); // Display your current value in php.ini (for example: 64M)
-        $this->_data['mem'] = $memory;
+        $main = Main::all();
+        $arr = [];
+        foreach ($main as $data) {
+            $arr[$data->name] = $data->value;
+        }
+        $this->_data['main'] = $arr;
 
     }
 

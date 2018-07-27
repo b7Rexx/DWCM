@@ -77,6 +77,11 @@ nav {
     border-radius: 5px;
 }
 
+.detail-block img {
+    width: 70%;
+    border-radius: 5px;
+}
+
 .list {
     background: rgba(200, 200, 200, 0.4);
     margin: 15px;

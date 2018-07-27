@@ -11737,7 +11737,7 @@ exports = module.exports = __webpack_require__(36)(false);
 
 
 // module
-exports.push([module.i, "\n.choose-image img {\n    height: 100px;\n    width: 100px;\n    padding: 5px;\n    -webkit-box-shadow: 1px 1px 10px deepskyblue;\n            box-shadow: 1px 1px 10px deepskyblue;\n    z-index: 5;\n}\n.choose-image img:hover {\n    height: 200px;\n    width: 200px;\n    z-index: 10;\n}\n.imgList {\n    overflow-y: scroll;\n    padding: 2px;\n    -webkit-box-shadow: 1px 1px 10px deepskyblue;\n            box-shadow: 1px 1px 10px deepskyblue;\n    z-index: 20;\n    display: none;\n    position: absolute;\n    background: white;\n}\n", ""]);
+exports.push([module.i, "\n.choose-image img {\n    height: 100px;\n    width: 100px;\n    padding: 5px;\n    -webkit-box-shadow: 1px 1px 10px deepskyblue;\n            box-shadow: 1px 1px 10px deepskyblue;\n}\n.imgList {\n    overflow-y: scroll;\n    padding: 2px;\n    -webkit-box-shadow: 1px 1px 10px deepskyblue;\n            box-shadow: 1px 1px 10px deepskyblue;\n    z-index: 20;\n    width: 260px;\n    display: none;\n    position: absolute;\n    background: white;\n}\n", ""]);
 
 // exports
 
@@ -12140,12 +12140,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
             imgList: '',
-            selectImage: ''
+            selectImage: false
         };
     },
 
@@ -12164,6 +12165,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         imageSelect: function imageSelect(value) {
             this.selectImage = value;
             this.closeImg();
+        },
+        removeImg: function removeImg() {
+            this.selectImage = false;
         }
     }
 });
@@ -12194,13 +12198,13 @@ var render = function() {
     ),
     _vm._v(" "),
     _c("div", { staticClass: "imgList" }, [
-      _c("div", { staticStyle: { position: "absolute", top: "0" } }, [
+      _c("div", { staticClass: "p-2" }, [
         _c("i", { staticClass: "fa fa-image text-success" }, [
           _vm._v(" Click on image to choose")
         ]),
-        _vm._v("\n                  \n            "),
+        _vm._v("      \n            "),
         _c("i", {
-          staticClass: " fa fa-times btn btn-danger btn-sm",
+          staticClass: " fa fa-times text-danger ",
           on: {
             click: function($event) {
               _vm.closeImg()
@@ -12208,8 +12212,6 @@ var render = function() {
           }
         })
       ]),
-      _vm._v(" "),
-      _c("hr"),
       _vm._v(" "),
       _c(
         "div",
@@ -12254,7 +12256,25 @@ var render = function() {
         }
       }
     }),
-    _vm._v("\n    " + _vm._s(_vm.selectImage) + "\n")
+    _vm._v(" "),
+    _vm.selectImage
+      ? _c("div", [
+          _c("img", {
+            staticStyle: { height: "80px", width: "80px" },
+            attrs: { src: "/images/upload/" + _vm.selectImage, alt: "" }
+          }),
+          _vm._v(" "),
+          _c("i", {
+            staticClass: "fa fa-times fa-2x text-danger",
+            attrs: { title: "remove image" },
+            on: {
+              click: function($event) {
+                _vm.removeImg()
+              }
+            }
+          })
+        ])
+      : _vm._e()
   ])
 }
 var staticRenderFns = [

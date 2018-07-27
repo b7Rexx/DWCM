@@ -29,8 +29,10 @@
                        src="https://www.youtube.com/embed/{{$vid}}">
                 @endif
 
-                <p>{{substr($lis->detail??'',0,50)}}</p>
-
+                <?php
+                $uri = $lis->content->nav->navbar->id . '/' . $lis->content->nav->id . '/' . $lis->id;
+                echo "<p>" . substr($lis->detail ?? '', 0, 50) . "<a href='" . url($uri) . "'> . . .See more</a></p>";
+                ?>
             </div>
 
         </div>

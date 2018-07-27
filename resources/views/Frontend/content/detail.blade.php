@@ -14,7 +14,8 @@
                         <blockquote>{{$det->quote??''}}</blockquote>
                         @if(isset($det->audioData->title))
                             <br>
-                            <audio src="{{url('audio/'.$det->audioData->title??'')}}" controls style="width:100px;"></audio>
+                            <audio src="{{url('audio/'.$det->audioData->title??'')}}" controls
+                                   style="width:100px;"></audio>
                         @endif
                     </div>
                 @endif
@@ -26,9 +27,10 @@
                     </div>
                 @endif
             </div>
-
-            <p>{{$det->detail??''}}</p>
-
+            <?php
+            $uri = $det->content->nav->navbar->id . '/' . $det->content->nav->id . '/' . $det->id;
+            echo "<p>" . substr($det->detail ?? '', 0, 50) . "<a href='" . url($uri) . "'> . . .See more</a></p>";
+            ?>
         </div>
     @endif
 @empty

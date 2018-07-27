@@ -46,7 +46,12 @@ class FrontendController extends Controller
         $this->block($block);
 
         $this->_data['data'] = [$navbar, $nav, $block, $action];
+
+        if ($block != '')
+            return view($this->_path . 'blockDetail', $this->_data);
+
         return view($this->_path . 'main', $this->_data);
+
     }
 
     private function navbar($id)
