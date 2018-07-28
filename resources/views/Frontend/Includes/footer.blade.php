@@ -40,13 +40,13 @@
 
 
 <script src="{{url('js/app.js')}}"></script>
+<script src="{{url('js/style.js')}}"></script>
 <script>
     // Navbar Fixed Top on Scroll
     $(function () {
         // Check the initial Poistion of the Sticky Header
         var stickyHeaderTop = $('#stickyheader').offset().top;
         var checkWidth = $(window).width();
-        console.log(checkWidth);
         $(window).scroll(function () {
             if ($(window).scrollTop() > stickyHeaderTop && checkWidth > 977) {
                 $('#stickyheader').css({position: 'fixed', top: '0px', background: '{{$main['csshead']??'grey'}}'});

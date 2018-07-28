@@ -17,11 +17,17 @@
 //     });
 // });
 //
-// //dropdown toggle
-// $(document).ready(function () {
-//     $(".dropdown").hover(function () {
-//         $(".dropdown-content").fadeIn(100);
-//     }, function () {
-//         $(".dropdown-content").fadeOut(100);
-//     });
-// });
+
+//dropdown toggle
+$(document).ready(function () {
+    $(".dropdown").hover(function () {
+        $(this).children('div.dropdown-menu').fadeIn(100);
+    }, function () {
+        $(this).children('div.dropdown-menu').fadeOut(100);
+    });
+});
+
+//Navbar search toggle
+$('#searchToggle').click(function () {
+    $('#search').slideToggle(500);
+});

@@ -41,7 +41,7 @@ Route::group(['prefix' => '@dmin', 'middleware' => 'auth:web'], function () {
 });
 
 Route::get('/{navbar?}/{nav?}/{block?}/{action?}', 'FrontendController@main')->name('home')->where('navbar', '[0-9]+')->where('nav', '[0-9]+');
-
+Route::post('search', 'FrontendController@searchKey')->name('search');
 
 Route::get('login', 'LoginController@index')->name('login');
 Route::post('login', 'LoginController@loginAction')->name('login-action');
@@ -53,6 +53,6 @@ Route::get('api/imagelist', function () {
     foreach (\App\Image::all() as $key => $img) {
         $array[$key] = $img->title;
     }
-        $array = array_unique($array);
+    $array = array_unique($array);
     return response($array);
 });

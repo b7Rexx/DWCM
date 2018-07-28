@@ -18,8 +18,9 @@ nav {
     }
 }
 
-.navbar a {
-    font-size: 1.1em;
+.navbar-brand, .nav-link h, .nav-link i, .search i {
+    color: black;
+    font-weight: bold;
     text-shadow: 1px 1px 2px white;
 }
 
@@ -91,7 +92,7 @@ nav {
 }
 
 .list h3 {
-    text-shadow: 1px 1px 5px whiteblack
+    text-shadow: 1px 1px 5px white;
 }
 
 .list img {
@@ -101,9 +102,25 @@ nav {
 
 }
 
-blockquote {
-    /*color:black;*/
-    /*background: rgba(250,250,250,0.4);*/
+blockquote:before {
+    color: yellow;
+    text-shadow: 2px 2px 5px blue;
+    position: absolute;
+    content: open-quote;
+    font-size: 2em;
+    margin-left: -10px;
+    margin-top: -10px;
+}
+
+blockquote:after {
+    color: yellow;
+    text-shadow: 2px 2px 5px blue;
+    position: absolute;
+    content: close-quote;
+    font-size: 2em;
+    display: inline;
+    margin-right: 5px;
+    margin-top: -8px;
 }
 
 header a > i, header a {
@@ -133,4 +150,19 @@ footer img {
 footer a {
     color: white;
     text-shadow: 1px 1px 4px black;
+}
+
+#search {
+    background: transparent;
+    display: none;
+    width: 230px;
+    text-shadow: 1px 1px 2px white;
+}
+
+.search-block {
+    background: rgba(200, 200, 200, 0.4);
+    margin: 20px;
+    padding: 10px;
+    box-shadow: 1px 1px 15px gainsboro;
+    color: black;
 }

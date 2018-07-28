@@ -100,4 +100,17 @@ class FrontendController extends Controller
         }
     }
 
+    public function searchKey(Request $request)
+    {
+        if (!$this->navbar(''))
+            return redirect()->to(route('home'));
+
+        if (!$this->nav(''))
+            return redirect()->to(route('home'));
+
+        $keyword = $request->k;
+        $this->_data['key'] = $keyword;
+        $this->_data['searchList'] = Block::where('name', 'like', '%' . $keyword . '%')->get();
+        return view($this->_path . 'search', $this->_data);
+    }
 }

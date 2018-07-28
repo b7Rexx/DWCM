@@ -16,7 +16,8 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-cloud"></i> {{$navbar1->name}}
+                            <i class="fa fa-cloud"></i>
+                            <h>{{$navbar1->name}}</h>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @forelse($navbar1->nav as $nav_navbar)
@@ -32,7 +33,8 @@
                 @else
                     <li class="nav-item">
                         <a class="nav-link" href="{{url($navbar1->id.'/'.$navbar1->nav[0]->id)}}">
-                            <i class="fa fa-cloud"></i> {{$navbar1->nav[0]->name}}
+                            <i class="fa fa-cloud"></i>
+                            <h>{{$navbar1->nav[0]->name}}</h>
                         </a>
                     </li>
                 @endif
@@ -43,5 +45,11 @@
             {{--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">--}}
             {{--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>--}}
         {{--</form>--}}
+        <form class="form-inline my-2 my-lg-0 search" method="post" action="{{route('search')}}">
+            {{csrf_field()}}
+            <input class="form-control" id="search" type="search" placeholder="Type keywords and hit enter"
+                   name="k" autocomplete="off">
+            &nbsp;<i class="fa fa-search pr-3" id="searchToggle" contenteditable="false"> Search</i>
+        </form>
     </div>
 </nav>
