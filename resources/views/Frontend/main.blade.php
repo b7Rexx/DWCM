@@ -39,6 +39,9 @@
             @endif
         </div>
     </div>
+    @if($gallery??0)
+        @include('Frontend.content.gallery')
+    @endif
     @if($list??0)
         @include('Frontend.content.list')
     @endif

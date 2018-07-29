@@ -84,6 +84,9 @@
                             ?>"><i class="fa fa-music fa-2x m-1"></i></a>
                         @endif
 
+                        @if($item->GalleryData)
+                            <a href="#"><i class="fa fa-camera fa-2x m-1"></i></a>
+                        @endif
                     </td>
                     <td>{{\Carbon\Carbon::parse($item->created_at)->diffForHumans()}}</td>
                     <td><a href="{{url('@dmin/block/delete/'.$contentDetail->type.'/'.$item->id)}}"

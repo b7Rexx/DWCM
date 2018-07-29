@@ -107,6 +107,27 @@
             </div>
         </div>
 
+        <div class="pr-5 pl-5 col-md-5 col-sm-6 mb-3">
+            <div class="card text-white bg-primary {{$bg['gallery']??''}} o-hidden h-100">
+                <div class="card-body"
+                     onclick="window.location.href='{{url('@dmin/content/gallery/'.$navDetail->id)}}'">
+                    <div class="card-body-icon">
+                        <i class="fa fa-fw fa-camera"></i>
+                    </div>
+                    <div class="mr-5"><i class="fa fa-plus fa-2x"></i> <b>Gallery Block</b></div>
+                </div>
+                <a class="card-footer text-white clearfix small z-1"
+                   href="{{url('@dmin/status/content/gallery/'.$navDetail->id)}}">
+
+                    <span class="float-left">Click here! to change Status</span>
+                    <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+                </a>
+            </div>
+        </div>
+
+
     </div>
 
 @endsection

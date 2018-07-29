@@ -28,5 +28,3 @@
 <br>
 <b><i class="fa fa-video-camera"></i> Enter Video Url :</b>
 <input type="text" name="video" class="form-control">
-
-{{$mem}}  ok ok

@@ -28,4 +28,9 @@ class Block extends Model
     {
         return $this->hasOne(Video::class, 'block_id');
     }
+
+    public function GalleryData()
+    {
+        return $this->hasMany(Gallery::class, 'block_id');
+    }
 }

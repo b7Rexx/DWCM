@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Audio;
 use App\Block;
 use App\Content;
+use App\Gallery;
 use App\Image;
 use App\Main;
 use App\Nav;
@@ -244,11 +245,6 @@ class BackendController extends Controller
 
     function BlockAction(Request $request)
     {
-        ini_set('memory_limit', '512000000');
-
-        $memory = (int)ini_get("memory_limit"); // Display your current value in php.ini (for example: 64M)
-        $this->_data['mem'] = $memory;
-
         $data['name'] = $request->name;
         $data['quote'] = $request->quote ? $request->quote : '';
         $data['detail'] = $request->detail ? $request->detail : '';
@@ -278,6 +274,16 @@ class BackendController extends Controller
             $video = explode('&', explode('=', $request->video)[1])[0];
             Video::create(['title' => $video, 'block_id' => $last_id]);
         }
+
+        //gallery
+        if ($request->hasfile('gallery')) {
+            foreach ($request->gallery as $key => $gal) {
+                $imageName = time() . '_' . $key . '.' . $gal->getClientOriginalExtension();
+                $gal->move(public_path('images/gallery/'), $imageName);
+                Gallery::create(['title' => $imageName, 'block_id' => $last_id]);
+            }
+        }
+
 
         return redirect()->back()->with('success', $request->type . ' Block added !');
     }
