@@ -23,6 +23,7 @@
         footer {
             background: {{$csshead}};
         }
+
         header {
             background: {{$csshead}};
         }
@@ -30,6 +31,12 @@
     </style>
 </head>
 <body class="bg-body">
+<div class="fa-bg">
+
+    @for($i=1;$i<200;$i++)
+        <i class="fa fa-{{$main['cssanimate']??''}}"></i>
+    @endfor
+</div>
 <header>
     <div class="row">
         <div class="col-sm-6 header-left">

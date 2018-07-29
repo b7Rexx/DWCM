@@ -166,3 +166,16 @@ footer a {
     box-shadow: 1px 1px 15px gainsboro;
     color: black;
 }
+
+.fa-bg {
+    position: fixed;
+}
+
+.fa-bg i {
+    font-size: 1.5em;
+    opacity: 0.05;
+    color: white;
+    text-shadow: 2px 2px 8px black;
+    margin: 50px;
+}
+

@@ -16,6 +16,9 @@
             <br>
             <b><i class="fa fa-paint-brush"></i> Body background color : </b>
             <input type="color" class="form-control" name="body" style="width: 120px; height: 50px;" value="{{$main['cssbody']??''}}">
+            <br>
+            <b><i class="fa fa-paint-brush"></i> Background animation type : </b>
+            <input type="text" class="form-control" name="animate" value="{{$main['cssanimate']??''}}">
 
             <br>
             <input type="submit" class="form-control btn btn-success btn-lg" value="Change colors">

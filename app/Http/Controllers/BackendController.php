@@ -344,6 +344,10 @@ class BackendController extends Controller
         if (!empty($request->body))
             $this->addMainData('cssbody', $request->body);
 
+//        if (!empty($request->animate))
+        $this->addMainData('cssanimate', $request->animate ?? '');
+
+
         return redirect()->back()->with('success', 'css colors updated');
     }
 
